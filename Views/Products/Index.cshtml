@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProductCatalog.Models.Product>
+
+@{
+    ViewData["Title"] = "Product Catalog";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Product Catalog</h2>
+
+    <div class="text-center mb-4">
+        <p><strong>Name:</strong> HRUTHVIK S GOWDA</p>
+        <p><strong>Enrollment Number:</strong> 92400120461 </p>
+        <p><strong>Class:</strong> CSE - Semester 5 EV2 </p>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>₹@product.Price</td>
+                    <td>@product.Category</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

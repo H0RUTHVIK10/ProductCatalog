@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ProductCatalog.Models.Feedback>
+
+<h2>Feedback Management System</h2>
+
+<form asp-controller="Feedback" asp-action="Index" method="post">
+    <div>
+        <label for="Name">Name</label>
+        <input type="text" id="Name" name="Name" required />
+    </div>
+
+    <div>
+        <label for="Email">Email</label>
+        <input type="email" id="Email" name="Email" required />
+    </div>
+
+    <div>
+        <label for="Rating">Rating (1-5)</label>
+        <input type="number" id="Rating" name="Rating"
+               min="1" max="5" required />
+    </div>
+
+    <div>
+        <label for="Comments">Comments</label>
+        <textarea id="Comments" name="Comments"
+                  maxlength="500" required></textarea>
+    </div>
+
+    <button type="submit">Submit Feedback</button>
+</form>
+
+<hr />
+
+<h3>Submitted Feedback</h3>
+
+@foreach (var item in Model)
+{
+    <div style="border:1px solid gray; padding:10px; margin:10px 0;">
+        <strong>@item.Name</strong>
+        <p>Email: @item.Email</p>
+        <p>Rating: @item.Rating/5</p>
+        <p>@item.Comments</p>
+    </div>
+}
